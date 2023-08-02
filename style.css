@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+:root{
+    --overlay-color:rgb(68, 215, 68);
+     
+}
+    
+    body{
+        position: relative;
+        overflow: hidden;
+    }
+      
+    .showcase{
+        position: absolute; 
+        right: 0; 
+        flex-direction: column;
+        width: 100%;
+        min-height: 100vh;
+        padding: 0px 100px;
+        display: flex;  
+        align-items: inherit;
+        background: rgb(2, 15, 21);
+        color: white;
+        z-index: 2;
+    }
+    /* .showcase.active{
+    right: 300px;
+    } */
+    .menu{
+        position: absolute;
+        transform: translateX(100%);
+        z-index: 2;
+        top: 0;
+        right: 0;
+        background-color: rgb(248, 248, 248);
+        width: 300px;
+        height: 100vh;
+        display: flex;
+        gap: 100px;
+    }
+    .menu ul {
+        margin: auto;
+        
+        position: relative;
+        list-style:none;
+    }
+    .menu ul li a {
+        text-decoration: none;
+        font-size: 24px;
+        color: black;
+    }
+    .menu ul li a:hover{
+        color:rgb(22, 70, 228)
+    }
+    .showcase header{
+        /* position: absolute; */
+        /* top: 0; */
+        /* left: 0; */
+        width: 100%; 
+        padding: 40px 0px;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .mulogo{
+        cursor: pointer;
+        width: 100%;
+        z-index: 2;
+    }
+    
+    .toggle{
+        position: relative;
+        width: 2rem;
+        height: 2rem;
+        background: url(img/menbut.png);
+        cursor: pointer;
+        background-image: white;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+    }
+    .toggle.active{
+
+        background: url(img/close.png);
+        background-image: white;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+    }
+    .showcase video{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: none;
+        opacity: 0.8;
+    } 
+    /* redo this*/
+    .overlay{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background:var (--overlay-color);
+        mix-blend-mode: overlay;
+
+    }
+    
+    
+    .text{
+        position: relative;
+        z-index: 10;
+    }
+    .text h2{
+        font-size: 3em;
+        font-weight: 900;
+        line-height: 1em;
+        text-transform: uppercase;
+
+    }
+    .text p{
+        font-size: 1.1em;
+        margin: 20px 0;
+        font-weight: 400;
+        max-width: 700px;
+    }
+    .text a{
+        display: inline-block;
+        font-size: 1em;
+        background: #fff;
+        padding: 10px 30px;
+        color: #111;
+        text-decoration: none;
+        margin-top: 10px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        transition: 0.2s;
+    }
+    .text a:hover{
+        letter-spacing: 4px;
+    }
+    .social{
+        position: absolute;
+        bottom: 20px;
+        z-index: 10;
+    }
+    @media (max-width: 768px) {
+        .showcase,
+        .showcase header{
+            padding:40px;
+
+        }
+        .text h2{
+            font-size: 3em;
+        }
+        .text h3{
+            font-size: 2em;
+        }
+        
+    } 
+    @media (min-width: 768px) {
+        .mulogo img {
+          width: 30%;
+        }
+    }
+      
+      @media (min-width: 480px) and (max-width: 767px) {
+        .mulogo img{
+          width: 50%;
+        }
+    }
+      
+      @media (max-width: 479px) {
+        .mulogo img{
+          width: 25%;
+        }
+    }
+
+
+
+
+
+
+
+    /*.social{
+        font-size: 1.5rem;
+        gap: 15px;
+        display: flex;
+        width: 100%;
+        
+    }
+    body{
+        width:100vw;
+        overflow-x: hidden;
+       
+    }
+    .mulogo{
+        width: 100%;
+        
+        
+    }
+    .mulogo img{
+        width:200px ;
+        height: 100px;
+
+
+    }
+
+    
+    
+    @media only screen and (max-width: 600px) {
+        body {
+          background-color: lightblue;
+        }
+      }*/
+
+
+
+     

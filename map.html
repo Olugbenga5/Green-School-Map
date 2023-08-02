@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Green Campus Map</title>
+  <!--leaflet css-->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin=""/>
+
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    #map {
+      width: 100;
+      height: 100vh;
+    }
+  </style>
+</head>
+
+<body>
+
+
+
+  <div id="map"></div>
+
+</body>
+
+
+</html>
+<!--leaflet js-->
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+  integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+
+
+<script>
+  //map intillastation    
+  var map = L.map('map').setView([53.3845, -6.6011], 15);
+
+  //osm
+  var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  });
+  osm.addTo(map);
+
+  //open street map layer(original)
+  var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  });
+  osm.addTo(map);
+  
+
+  //googleHybrid
+  googleHybrid = L.tileLayer('http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+    maxZoom: 20,
+    subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
+  });
+  googleHybrid.addTo(map);
+
+  //googleSat
+  googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+    maxZoom: 20,
+    subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
+  });
+  googleSat.addTo(map);
+
+  //google Terrain
+  googleTerrain = L.tileLayer('http://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
+    maxZoom: 20,
+    subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
+  });
+  googleTerrain.addTo(map);
+
+  //icon
+  var myIcon = L.icon({
+    iconUrl: 'img/red_marker.png',
+    iconSize: [40, 50],
+
+  });
+  //marker
+  //need to add getLang method
+  var marker = L.marker([53.3845, -6.6011], {
+    icon: myIcon,
+    draggable: true
+  }).addTo(map);
+  var popup = marker.bindPopup('You are here! ' + marker.getLatLng()).closePopup()
+  popup.addTo(map);
+
+  console.log(marker.toGeoJSON())
+
+  //Layer Controller
+
+
+  var baseMaps = {
+    "Original": osm,
+    "Satellite": googleSat,
+    "Terrain": googleTerrain,
+    "Hybrid": googleHybrid
+
+  };
+
+
+  var overlayMaps = {
+    "Location Marker": marker
+  };
+  //Layer Function
+  L.control.layers(baseMaps, overlayMaps).addTo(map);
+</script>
